@@ -70,7 +70,7 @@ font-family: 'Shadows Into Light';*/
   background-size: 100% 100%;
   background-position: center;
   box-sizing: border-box;
-  opacity: 0; /* oculto hasta que se active */
+  
   transition: opacity 2s ease;
   position: relative;
   overflow: hidden;
@@ -107,28 +107,7 @@ h1{
  text-shadow: 0 0 8px gold, 0 0 12px rgba(255,215,0,0.6);
 }
 
-/* Animaciones */
-@keyframes textoDerechaIzquierda {
-  0% { transform: translateX(100%) scale(0.8); opacity: 0; }
-  100% { transform: translateX(0) scale(1); opacity: 1; }
-}
-@keyframes textoIzquierdaDerecha {
-  0% { transform: translateX(-100%) scale(0.8); opacity: 0; }
-  100% { transform: translateX(0) scale(1); opacity: 1; }
-}
-@keyframes zoomGiro {
-  0% { transform: scale(0) rotate(0deg); opacity: 0; }
-  50% { transform: scale(1.2) rotate(180deg); opacity: 1; }
-  100% { transform: scale(1) rotate(360deg); opacity: 1; }
-}
-@keyframes pulse {
-  0%,100% { transform: scale(1); }
-  50% { transform: scale(1.2); }
-}
-@keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
+
 
 /* Estilo contador */
 #contador  {
@@ -141,18 +120,6 @@ h1{
   animation: pulse 1s infinite; /* zoom constante */
 }
 
-/* Clases activadas por Intersection Observer */
-.hijo.activo { opacity: 1; }
-.hijo1 h1 { opacity: 0; }
-.hijo1 p { opacity: 0; }
-.hijo1.activo h1 { animation: textoDerechaIzquierda 2s forwards; }
-.hijo1.activo p { animation: textoIzquierdaDerecha 2s forwards; }
-
-.hijo2 p { opacity: 0; }
-.hijo2.activo p { animation: zoomGiro 3s forwards; }
-
-.hijo3 h1 { opacity: 0; }
-.hijo3.activo h1 { animation: fadeIn 2s forwards; }
 
 
 /* Reproductor */
@@ -277,11 +244,6 @@ img{
   100% { transform: rotate(360deg) scale(1); opacity: 1; }
 }
 
-/* Imagen dentro del div 3 */
-.hijo3 img {
-  opacity: 0; /* estado inicial */
-  transform: rotate(0deg);
-}
 
 .hijo3.activo img {
   animation: girar 5s ease-out forwards; /* duración ajustable */
@@ -309,10 +271,7 @@ img{
   color: black;
   text-align: center;
 
-  /* Animaciones combinadas */
-  animation: zoomPulse 2s infinite ease-in-out,
-             colorPulse 4s infinite linear,
-             animationcolor 10s infinite; /* mismo efecto que h y p */
+
 }
 
 /* Animación de zoom pulsante */
@@ -335,10 +294,7 @@ img{
 }
 
 
-/*efecto hijo 3*/
-.hijo3 {
-  opacity: 0; /* estado inicial */
-}
+
 
 .hijo3.activo {
   animation: encendidoLento 5s ease forwards; /* duración lenta */
@@ -363,11 +319,7 @@ img{
   }
 }
 
-.hijo3 p,
-.hijo3 h1 {
-  opacity: 0;
-  display: inline-block; /* necesario para animar cada letra */
-}
+
 
 .hijo3.activo p,
 .hijo3.activo h1, 
@@ -475,8 +427,7 @@ efecto girar cuando se active el hijo4 */
 
 .btn{
   font-size: 20px; 
-animation:  animationcolor 10s infinite;
-  /* ajusta según lo grande que lo quieras */
+
 }
 
 
@@ -568,22 +519,14 @@ hr {
 
 /* ====== Imagen con zoom ====== */
 .zoom-img {
-  width: 50px;
+  width: 250px;
   height: auto;
   transform: scale(0.2);
-  opacity: 0;
+  
   margin-top: 10px;
   display: block;
   margin-left: auto;
   margin-right: auto; /* centra la imagen */
-}
-
-@keyframes zoomInImg {
-  to { transform: scale(1); opacity: 1; }
-}
-
-.zoom-img.visible {
-  animation: zoomInImg 2s forwards ease-out;
 }
 
 
@@ -747,7 +690,9 @@ hr {
       <button id="mute">🔇</button>
     </div>
   </div>
-    
+    <div class="gps">
+    <a href="https://wa.me/523312281872?text=Hola,%20confirmo%20mi%20asistencia%20al%20evento." class="btn">Confirmar</a>
+  </div>
       
     </div>
 
@@ -765,17 +710,6 @@ hr {
         <br /><br />
     </div>
 
-<!--div class="hijo hijo6" id="hijo6">
-  <h1 data-text="Agenda de actividades"></h1>
-  <p data-text="En este apartado van los horarios
-De las distintas actividades del evento"></p>
-  <ul>
-    <li data-text=" 🕒 7:00 PM – Recepción"></li>
-    <li data-text="🍽️ 8:00 PM – Cena"></li>
-    <li data-text="🎶 9:30 PM – Baile"></li>
-    <li data-text="🥂 11:00 PM – Brindis"></li>
-  </ul> <br /><br />
-</div-->
 
     <div class="hijo hijo3 subir">
       <h1>Ceremonia Religiosa</h1>
@@ -856,52 +790,31 @@ De las distintas actividades del evento"></p>
 </div-->
       
        <div class="hijo hijo7" id="hijo7">
-  <h1 id="matrix-h1" data-text="Gracias por asistir"></h1>
+  <h1>Gracias por asistir</h1>
 
-<p id="matrix-p1" data-text="agradezco tu presencia.">
+<p >Agradezco tu presencia <br /> en este evento tan solemne
+</p>
 
-<p id="matrix-p3" data-text="en este evento tan solemne.">
+
     
     
-</p><hr><br /><br /><br /><br /><br />
-<p id="matrix-p2" data-text="✨Invitaciones LuzNet✨"></p>
+<hr>
+<p>✨Invitaciones LuzNet✨ <br />
+✨agradece tu preferencia✨</p>
 
-<p id="matrix-p4" data-text="✨agradece tu preferencia✨"></p>
+
   
   <div class="footer-img">
-  <!--p>Invitaciones LuzNet agradece tu preferencia.</p-->
+  
   <img class="zoom-img" src="https://i.ibb.co/7tCWCQ6x/image-1771479727259.jpg" alt="Logo LuzNet">
   </div>
   
 </div>
-    
   </div>
 
   <script>
  
-// Intersection Observer para activar animaciones al entrar en pantalla
-const hijos = document.querySelectorAll('.hijo');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      // Reiniciar animación CSS: quitar y volver a poner la clase
-      entry.target.classList.remove('activo');
-      void entry.target.offsetWidth; // fuerza reflow
-      entry.target.classList.add('activo');
-
-      // Para hijo4: activar efecto Matrix cada vez que aparece
-      if (entry.target.classList.contains('hijo4')) {
-        prepararMatrixTexto();
-      }
-    }
-  });
-}, { threshold: 0.5 });
-
-hijos.forEach(hijo => observer.observe(hijo));
-
-
-
-    // Contador regresivo (2 de diciembre)
+  // Contador regresivo (2 de diciembre)
     const hoy = new Date();
     let year = hoy.getFullYear();
     let cumple = new Date(year, 11, 2);
@@ -1009,49 +922,7 @@ slides.addEventListener('touchend', e => {
 // Inicializar
 updateIndicator();
 
-//frase matrix
 
-
-
-
-// Función para preparar el efecto Matrix
-
-
-// Observer para hijo4
-const hijo4 = document.querySelector('.hijo4');
-const observer4 = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      prepararMatrixTextoDiv4('matrix-text'); // activa efecto Matrix en el título
-      iniciarSliderDiv4(); // activa slider
-    }
-  });
-}, { threshold: 0.5 });
-
-if (hijo4) observer4.observe(hijo4);
-
-
-// Función Matrix exclusiva para div4
-function prepararMatrixTextoDiv4(elementId) {
-  const el = document.getElementById(elementId);
-  if (!el) return;
-
-  const texto = el.getAttribute('data-text');
-  el.textContent = '';
-
-  [...texto].forEach((letra, i) => {
-    const span = document.createElement('span');
-    if (letra === ' ') {
-      span.className = 'space';
-      span.innerHTML = '&nbsp;';
-    } else {
-      span.textContent = letra;
-      span.style.animationDelay = (i * 0.2) + 's';
-      span.style.animationName = 'matrixFall'; // 👈 usa tu animación Matrix
-    }
-    el.appendChild(span);
-  });
-}
 
 
 // Slider exclusivo para div4
